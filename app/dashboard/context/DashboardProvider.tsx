@@ -74,10 +74,8 @@ export function DashboardProvider({ children, data }: DashboardProviderProps) {
           return 0;
       }
 
-      if (sort.column !== 'region') {
-        return sort.direction === 'asc' ? aValue - bValue : bValue - aValue;
-      }
-      return 0;
+      // For numeric columns, compare the values
+      return sort.direction === 'asc' ? aValue - bValue : bValue - aValue;
     });
 
     return sorted;

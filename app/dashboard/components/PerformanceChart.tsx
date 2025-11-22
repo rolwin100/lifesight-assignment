@@ -20,7 +20,7 @@ export const PerformanceChart = React.memo(function PerformanceChart() {
       name: region.region,
       spend: Math.round(region.spend),
       conversions: region.conversions,
-      ctr: parseFloat((region.conversions / region.impressions) * 100).toFixed(2),
+      ctr: ((region.conversions / region.impressions) * 100).toFixed(2),
     }));
   }, [regionAggregates]);
 

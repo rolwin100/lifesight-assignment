@@ -3,41 +3,43 @@
 import React, { useMemo } from 'react';
 import { useDashboard } from '../hooks/useDashboard';
 import { RegionRow } from './RegionRow';
-import { TableHeader } from './TableHeader';
-import styles from '../styles/table.module.css';
+import { SortableTable, SortableTableColumn } from '@/components/common/SortableTable';
+import { RegionAggregate } from '@/types/dashboard';
 
 export const DataTable = React.memo(function DataTable() {
-  const { state } = useDashboard();
-  const { regionAggregates } = state;
+  const { state, setSort } = useDashboard();
+  const { regionAggregates, sort } = state;
+
+  const columns: SortableTableColumn<RegionAggregate>[] = useMemo(
+    () => [
+      { key: 'region', label: 'Region / Channel', sortable: true },
+      { key: 'spend', label: 'Spend', sortable: true },
+      { key: 'impressions', label: 'Impressions', sortable: true },
+      { key: 'conversions', label: 'Conversions', sortable: true },
+      { key: 'clicks', label: 'Clicks', sortable: true },
+      { key: 'ctr', label: 'CTR (%)', sortable: true },
+    ],
+    []
+  );
+
+  const handleSort = React.useCallback(
+    (column: string) => {
+      setSort(column as any);
+    },
+    [setSort]
+  );
 
   return (
-    <div className={styles.tableWrapper}>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <TableHeader column="region" label="Region / Channel" />
-            <TableHeader column="spend" label="Spend" />
-            <TableHeader column="impressions" label="Impressions" />
-            <TableHeader column="conversions" label="Conversions" />
-            <TableHeader column="clicks" label="Clicks" />
-            <TableHeader column="ctr" label="CTR (%)" />
-          </tr>
-        </thead>
-        <tbody>
-          {regionAggregates.length === 0 ? (
-            <tr>
-              <td colSpan={6} className={styles.emptyCell}>
-                No data available
-              </td>
-            </tr>
-          ) : (
-            regionAggregates.map((region) => (
-              <RegionRow key={region.region} region={region} />
-            ))
-          )}
-        </tbody>
-      </table>
-    </div>
+    <SortableTable
+      columns={columns}
+      data={regionAggregates}
+      rowKey={(row) => row.region}
+      renderRow={(region) => <RegionRow region={region} />}
+      sortColumn={sort.column}
+      sortDirection={sort.direction}
+      onSort={handleSort}
+      emptyMessage="No data available"
+    />
   );
 });
 

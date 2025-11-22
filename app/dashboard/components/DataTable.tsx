@@ -3,7 +3,7 @@
 import React, { useMemo } from 'react';
 import { useDashboard } from '../hooks/useDashboard';
 import { RegionRow } from './RegionRow';
-import { SortableTable, SortableTableColumn } from '@/components/common/SortableTable';
+import { SortableTable, SortableTableColumn } from '@/components/Table';
 import { RegionAggregate } from '@/types/dashboard';
 
 export const DataTable = React.memo(function DataTable() {

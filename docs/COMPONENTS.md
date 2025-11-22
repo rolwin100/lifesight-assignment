@@ -6,13 +6,13 @@
 
 Basic reusable table component without sorting.
 
-**Location:** `components/common/Table.tsx`
+**Location:** `components/Table/Table.tsx`
 
 **Import:**
 ```tsx
-import { Table, type TableColumn } from '@/components/common/Table';
+import { Table, type TableColumn } from '@/components/Table/Table';
 // or
-import { Table, type TableColumn } from '@/components/common';
+import { Table, type TableColumn } from '@/components/Table';
 ```
 
 **Props:**
@@ -30,7 +30,7 @@ interface TableProps<T> {
 
 **Example:**
 ```tsx
-import { Table, type TableColumn } from '@/components/common';
+import { Table, type TableColumn } from '@/components/Table';
 
 const columns: TableColumn<User>[] = [
   { key: 'name', label: 'Name' },
@@ -54,13 +54,13 @@ const columns: TableColumn<User>[] = [
 
 Table component with built-in sorting functionality.
 
-**Location:** `components/common/SortableTable.tsx`
+**Location:** `components/Table/SortableTable.tsx`
 
 **Import:**
 ```tsx
-import { SortableTable, type SortableTableColumn } from '@/components/common/SortableTable';
+import { SortableTable, type SortableTableColumn } from '@/components/Table/SortableTable';
 // or
-import { SortableTable, type SortableTableColumn } from '@/components/common';
+import { SortableTable, type SortableTableColumn } from '@/components/Table';
 ```
 
 **Props:**
@@ -80,7 +80,7 @@ interface SortableTableProps<T> {
 
 **Example:**
 ```tsx
-import { SortableTable, type SortableTableColumn } from '@/components/common';
+import { SortableTable, type SortableTableColumn } from '@/components/Table';
 import { useState } from 'react';
 
 const [sortColumn, setSortColumn] = useState<string | null>(null);

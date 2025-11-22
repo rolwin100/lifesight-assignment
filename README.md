@@ -107,7 +107,7 @@ lifesight/
 │   ├── page.tsx                 # Main dashboard page
 │   └── marketing_dashboard_data.json # Data file (10,000 records)
 ├── components/
-│   └── common/                  # Reusable components
+│   └── Table/                  # Reusable components
 │       ├── Table.tsx            # Basic table component
 │       ├── SortableTable.tsx    # Sortable table component
 │       ├── SortableTableHeader.tsx # Sortable header

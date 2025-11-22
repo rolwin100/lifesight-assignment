@@ -45,7 +45,7 @@ The static build will be in the `out` directory.
 #### Basic Table
 
 ```tsx
-import { Table, type TableColumn } from '@/components/common';
+import { Table, type TableColumn } from '@/components/Table';
 
 interface User {
   id: number;
@@ -78,7 +78,7 @@ function UserTable({ users }: { users: User[] }) {
 #### Sortable Table
 
 ```tsx
-import { SortableTable, type SortableTableColumn } from '@/components/common';
+import { SortableTable, type SortableTableColumn } from '@/components/Table';
 import { useState } from 'react';
 
 interface Product {
@@ -136,7 +136,6 @@ function ProductTable({ products }: { products: Product[] }) {
 }
 ```
 
-## Common Tasks
 
 ### Adding a New Filter
 

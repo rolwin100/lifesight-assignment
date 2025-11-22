@@ -1,0 +1,153 @@
+/* Table Wrapper */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+/* Table Header */
+.tableHeader {
+  background-color: #f9fafb;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease-in-out;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tableHeader:hover {
+  background-color: #f3f4f6;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sortIcon {
+  font-size: 0.75rem;
+  color: #6b7280;
+  opacity: 0.7;
+}
+
+.tableHeader:hover .sortIcon {
+  opacity: 1;
+}
+
+/* Table Cells */
+.tableCell {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.emptyCell {
+  padding: 2rem;
+  text-align: center;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Region Row */
+.regionRow {
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.regionRow:hover {
+  background-color: #f9fafb;
+}
+
+.regionRow:active {
+  background-color: #f3f4f6;
+}
+
+.regionCell {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.expandIcon {
+  display: inline-block;
+  width: 1rem;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+/* Channel Row */
+.channelRow {
+  background-color: #fafafa;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.channelRow:hover {
+  background-color: #f3f4f6;
+}
+
+.channelCell {
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+}
+
+.channelIndent {
+  display: inline-block;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.75rem;
+  }
+
+  .tableHeader,
+  .tableCell,
+  .regionCell,
+  .channelCell {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .channelCell {
+    padding-left: 2rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .tableWrapper {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .regionRow {
+    page-break-inside: avoid;
+  }
+}
+
